@@ -1,8 +1,3 @@
----
-title: Leetcode-1-TwoSum
-date: 2019-01-09 10:39:12
-tags:
----
 # 1.Two Sum
 
 Given an array of integers, return indices of the two numbers such that they add up to a specific target.
@@ -109,6 +104,9 @@ let twoSum = function(nums, target) {
 
 ```
 
+
+
+date: 2019-01-09 
 
 
 
