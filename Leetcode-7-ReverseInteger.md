@@ -62,46 +62,24 @@ let reverse = function(x) {
 ```
 
 
-### 题解二：
+### 题解二：不转string的取余算法
 
 Code:
 ```
-let reverse = function(a) {
-    let x=a
-    let y=a
+let reverse = function(x) {    
+    let y=x
     let z=0
-    let c=0
-    let i=1
-  
-    while(x!==0){   
-        x=Math.floor(x/10)
-        c++
-    }  
-    if(x>=0){
-        while(y!==0){ 
-            r=y%10        
-            y=Math.floor(y/10)        
-            z=z+r*10**(c-i)  
-            i++             
-        }
-        
-        if(z>2**31-1){
-            return 0  
-        }
-    }    
-    if(x<0){    
-        while(y!==0){ 
-            r=y%10        
-            y=parseInt(y/10)        
-            z=z+r*10**(c-i)  
-            i++     
-        }
-        if(z<-(2**31)){
-            return 0
-        }  
-        console.log(z)
-    } 
-    return z      
+    const max=2**31-1
+    const min=-(2**31)
+
+    while(y!==0){ 
+        r=y%10        
+        y=parseInt(y/10)        
+        z=z*10+r               
+    }
+
+    if (z > max || z < min){return 0} 
+    return z
 };
 ```
 
