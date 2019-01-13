@@ -1,8 +1,3 @@
----
-title: Leetcode-1-Reverse Integer
-date: 2019-01-09 10:39:12
-tags:
----
 # 7.Reverse Integer
 
 Given a 32-bit signed integer, reverse digits of an integer.
@@ -45,7 +40,6 @@ let reverse = function(x) {
             }
         
             return reversed
-
     }
     
      if(x<0){
@@ -60,9 +54,54 @@ let reverse = function(x) {
     }    
 };
 ```
+小技巧
+
+> Number 转 String: stringX=x+''
+
+```
+let x=123
+
+let lstringX=x+''
+"123"
+```
+
+> String 转 Number: Number('string')
+
+```
+let x='123'
+
+Number(x)
+123
+```
+
+> String 转 Array：String.split('')
+
+```
+let x='abc'
+
+x.split('')
+["a", "b", "c"]
+```
+> Array 转 String: arrayX.join('')
+
+```
+let x='abc'
+let arrayX=x.split('')
+
+arrayX.join('')
+"abc"
+
+```
 
 
 ### 题解二：不转string的取余算法
+每取原数字的最后1位，都储存到变量r中，以便调用为新数的第1位。
+去掉原数字的最后1位，形成新的数字。
+
+小技巧
+> x%10:得到数字的最后1位
+
+> parseInt(x/10):得去掉最后1位的新整数
 
 Code:
 ```
@@ -82,5 +121,5 @@ let reverse = function(x) {
     return z
 };
 ```
-
+date: 2019-01-09
 

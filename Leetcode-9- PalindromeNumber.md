@@ -1,8 +1,4 @@
----
-title: Leetcode-9-PalindromeNumber
-date: 2019-01-09 10:39:12
-tags:
----
+
 # 9.Palindrome Number
 
 Determine whether an integer is a palindrome. An integer is a palindrome when it reads the same backward as forward.
@@ -29,20 +25,20 @@ Follow up:
 Coud you solve it without converting the integer to a string?
 
 
-### 题解：
+### 题解一：
 每取原数字的最后1位，都储存到变量r中，以便调用为回文的第1位。
 去掉原数字的最后1位，形成新的数字。
 
 小技巧
 > x%10:得到数字的最后1位
 
-> Math.floor(x/10):得去掉最后1位的新整数
+> parseInt(x/10):得去掉最后1位的新整数
 
 Code:
 ```
-let isPalindrome = function(a) {
-    let x=a
-    let y=a
+let isPalindrome = function(x) {
+    let l=x
+    let y=x
     let z=0
     let c=0
     let r=0 
@@ -50,17 +46,17 @@ let isPalindrome = function(a) {
 
 
     //计算数字的长度
-    while(x!==0){   
-        x=Math.floor(x/10)
+    while(l!==0){   
+        l=Math.floor(l/10)
         c++
     }
 
     //r:除10后得到的余数
     //y:除10后得到的少1位的新整数
-    //z：原数倒序后的新数。
+    //z：原数倒序后的新数
     while(y!==0){ 
         r=y%10        
-        y=Math.floor(y/10)        
+        y=parseInt(y/10)        
         z=z+r*10**(c-i)  
         i++             
     }
@@ -68,12 +64,28 @@ let isPalindrome = function(a) {
         return false;
     }
     
-    if((a-z)===0){
-        return true;
-    }else{
-        return false;
-    }
+    return x==z    
 };
+```
+### 题解二：
+```
+let isPalindrome = function(x) {
+   
+    let y=x;
+    let z=0;
+
+    if(x<0){
+        return false     
+    }
+
+    while(y !==0){
+        z=z*10+y%10
+        y=parseInt(y/10);  
+    }
+    return x==z    
+};
+
 ```
 
 
+date: 2019-01-09
